@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/sse.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/sse",
+      "dest": "api/sse.js"
+    },
+    {
+      "src": "/tools",
+      "dest": "api/sse.js"
+    },
+    {
+      "src": "/",
+      "dest": "api/sse.js"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  }
+}

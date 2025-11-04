@@ -37,6 +37,7 @@
     }
   },
   "dependencies": {
+    "express": "^5.1.0",
     "playwright": "1.57.0-alpha-1761929702000",
     "playwright-core": "1.57.0-alpha-1761929702000"
   },
