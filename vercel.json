@@ -1,26 +1,37 @@
 {
   "version": 2,
-  "builds": [
+  "public": true,
+  "rewrites": [
     {
-      "src": "api/sse.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/sse",
-      "dest": "api/sse.js"
+      "source": "/sse",
+      "destination": "/api/sse"
     },
     {
-      "src": "/tools",
-      "dest": "api/sse.js"
+      "source": "/tools",
+      "destination": "/api/sse"
     },
     {
-      "src": "/",
-      "dest": "api/sse.js"
+      "source": "/",
+      "destination": "/api/sse"
     }
   ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization"
+        }
+      ]
+    }
+  ]
 }
